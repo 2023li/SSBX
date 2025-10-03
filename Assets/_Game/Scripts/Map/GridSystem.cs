@@ -107,6 +107,23 @@ namespace SSBX
         public short GetSecurity(Vector3Int c) => IsInside(c) ? _cells[c].security : (short)0;
         public short GetBeautify(Vector3Int c) => IsInside(c) ? _cells[c].beautify : (short)0;
 
+        public void SetMedical(Vector3Int c, short v)
+        {
+            if (!IsInside(c)) return;
+            var d = _cells[c]; d.medical = v; _cells[c] = d;
+        }
+        public void SetSecurity(Vector3Int c, short v)
+        {
+            if (!IsInside(c)) return;
+            var d = _cells[c]; d.security = v; _cells[c] = d;
+        }
+        public void SetBeautify(Vector3Int c, short v)
+        {
+            if (!IsInside(c)) return;
+            var d = _cells[c]; d.beautify = v; _cells[c] = d;
+        }
+
+
         public void AddMedical(Vector3Int c, short v)
         {
             if (!IsInside(c)) return;

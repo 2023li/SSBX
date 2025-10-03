@@ -12,12 +12,12 @@ public class Test : MonoBehaviour
     public BuildingConfig bc1;
 
 
-    private BuildController buildController;
+    private BuildControllerV2 buildController;
 
     // Start is called before the first frame update
     void Start()
     {
-        buildController = GameObject.FindAnyObjectByType<BuildController>();
+        buildController = GameObject.FindAnyObjectByType<BuildControllerV2>();
         btn1 = gameObject.GetComponent<Button>();
 
         btn1.onClick.AddListener(() =>

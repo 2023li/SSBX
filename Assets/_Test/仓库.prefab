@@ -49,7 +49,7 @@ MonoBehaviour:
   originCell: {x: 0, y: 0, z: 0}
   isConstructed: 0
   buildProgress: 0
-  owner: 1
+  owner: 0
 --- !u!1 &5783586400832948499
 GameObject:
   m_ObjectHideFlags: 0

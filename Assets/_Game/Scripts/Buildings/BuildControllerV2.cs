@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Sirenix.OdinInspector;
 using UnityEngine.Tilemaps;
+using System.Collections.Generic;
 
 namespace SSBX
 {
@@ -36,6 +37,14 @@ namespace SSBX
             _cam = Camera.main;
         }
 
+
+        public void EnterPlaceMode(Building buildingPrefab, BuildingConfig buildingConfig)
+        {
+            this.buildingPrefab = buildingPrefab;
+            this.buildingConfig = buildingConfig;
+            EnterPlaceMode();
+
+        }
         // === 外部入口 ===
         [Button("进入放置模式（测试）")]
         public void EnterPlaceMode()
@@ -72,19 +81,22 @@ namespace SSBX
 
             if (!waitingConfirm)
             {
-                // 放置模式：Ghost 跟随 + 实时合法性
                 var origin = new Vector3Int(hoverCell.x, hoverCell.y, 0);
                 var size = Mathf.Max(1, buildingConfig.size);
-                var valid = BuildingManager.Instance.CanPlace(buildingConfig, origin);
+
+                // 使用逐格校验，获得具体非法格集合
+                var valid = GridIndex.Instance.ValidateArea(buildingConfig, origin, out var invalidList);
+                var invalidSet = new HashSet<Vector3Int>();
+                for (int i = 0; i < invalidList.Count; i++) invalidSet.Add(invalidList[i].cell);
 
                 // Ghost摆到区域中心
                 var center = GridSystem.Instance.GetAreaCenterWorld(origin, size);
                 _ghost.transform.position = center;
 
-                // 高亮
-                highlighter.HighlightArea(origin, size, valid);
+                // 高亮（绿/浅红/深红）
+                highlighter.HighlightAreaDetailed(origin, size, invalidSet, valid);
 
-                // 交互：PC左键/触控松手 → 进入待确认
+                // 触发进入“待确认”
                 if (IsConfirmTriggered())
                 {
                     if (!valid) { Debug.Log("此处不合法"); return; }
