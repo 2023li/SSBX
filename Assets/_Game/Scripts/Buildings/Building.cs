@@ -13,7 +13,7 @@ namespace SSBX
     /// </summary>
     public class Building : MonoBehaviour
     {
-        public BuildingConfig config;
+        [ShowInInspector][ReadOnly]public BuildingConfig config;
 
         [Header("状态")]
 #if ODIN_INSPECTOR

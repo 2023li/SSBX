@@ -45,8 +45,8 @@ namespace SSBX
             if (mouse.leftButton.wasPressedThisFrame)
                 TryConfirmPlace();
 
-            if (mouse.rightButton.wasPressedThisFrame || Keyboard.current.escapeKey.wasPressedThisFrame)
-                CancelPlace();
+            //if (mouse.rightButton.wasPressedThisFrame || Keyboard.current.escapeKey.wasPressedThisFrame)
+            //    CancelPlace();
         }
 
         public void EnterPlaceMode(Building prefab, BuildingConfig cfg)

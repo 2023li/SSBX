@@ -15,6 +15,7 @@ namespace SSBX
     /// <summary>
     /// 全局输入路由：集中轮询 ESC/Back 等输入，将事件派发给“输入层栈”顶层。
     /// </summary>
+    [DefaultExecutionOrder(-10000)]  
     public class GameInputRouter : MonoBehaviour
     {
         public static GameInputRouter Instance { get; private set; }
@@ -36,7 +37,12 @@ namespace SSBX
                        || Input.GetKeyDown(KeyCode.Escape);
             if (!esc) return;
 
-            if (_layers.Count == 0) return;
+            if (_layers.Count == 0)
+            {
+                Debug.Log(0);
+                return;
+             
+            }
 
             var top = _layers.Peek();
             if (top != null)

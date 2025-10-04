@@ -44,7 +44,8 @@ namespace SSBX
 
         [Title("日志")]
         [LabelText("打印绑定报告")] public bool verbose = true;
-
+        [LabelText("运行时允许创建缺失对象"), Tooltip("建议关闭。缺失请用编辑器向导创建。")]
+        public bool createMissingAtRuntime = false;
         private void Awake()
         {
             DontDestroyOnLoad(gameObject);
@@ -247,9 +248,17 @@ namespace SSBX
             var inst = FindObjectOfType<T>();
             if (inst == null)
             {
-                var go = new GameObject(name);
-                go.transform.SetParent(transform);
-                go.AddComponent<T>();
+                if (createMissingAtRuntime)
+                {
+                    var go = new GameObject(name);
+                    go.transform.SetParent(transform);
+                    go.AddComponent<T>();
+                    if (verbose) Debug.Log($"[Bootstrap] 运行时已创建缺失系统：{name}");
+                }
+                else
+                {
+                    Debug.LogError($"[Bootstrap] 缺少系统：{name}，请运行编辑器向导创建（Tools/SSBX/场景体检与一键创建）。");
+                }
             }
         }
 

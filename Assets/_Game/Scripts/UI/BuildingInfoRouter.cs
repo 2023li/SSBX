@@ -28,6 +28,15 @@ namespace SSBX
         /// <summary>基于模式创建并返回已实例化的面板。</summary>
         public async Task<BuildingPanelBase> CreatePanelAsync(Building b, Transform parent)
         {
+            // 优先：若 Config 上手动指定了面板Prefab，直接实例化
+            if (b != null && b.config != null && b.config.infoPanelPrefab != null)
+            {
+                var panel = Instantiate(b.config.infoPanelPrefab, parent);
+                return panel;
+            }
+
+
+            
             if (useAddressables) return await CreatePanelByAddressables(b, parent);
             else return CreatePanelByInspector(b, parent);
         }

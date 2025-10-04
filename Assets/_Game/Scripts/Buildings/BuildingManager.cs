@@ -25,6 +25,16 @@ namespace SSBX
             return GridIndex.Instance.IsAreaFree(cfg, originCell);
         }
 
+
+        public Building Place(BuildingConfig config, Vector3Int origin)
+        {
+            if (config == null || config.prefab == null)
+            {
+                Debug.LogWarning("[BuildingManager] Config为空或未指定prefab。");
+                return null;
+            }
+            return Place(config.prefab, config, origin); // 复用你现有实现
+        }
         /// <summary>放置建筑（已校验）。</summary>
         public Building Place(Building prefab, BuildingConfig cfg, Vector3Int originCell)
         {

@@ -114,6 +114,16 @@ namespace SSBX
             }
             EnterPlaceMode(selectedPrefab, selectedConfig);
         }
+        [Button("从Config直接进入放置")]
+        public void EnterPlaceMode(BuildingConfig config)
+        {
+            if (config == null || config.prefab == null)
+            {
+                Debug.LogWarning("[BuildControllerV2] Config为空或未在Config中指定 prefab。");
+                return;
+            }
+            EnterPlaceMode(config.prefab, config);
+        }
 
         public void EnterPlaceMode(Building prefab, BuildingConfig config)
         {
