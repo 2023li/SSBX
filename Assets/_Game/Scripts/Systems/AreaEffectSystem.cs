@@ -160,7 +160,7 @@ namespace SSBX
 
         // —— 调试按钮 ——
         [Button("重算全图(保险)")]
-        private void RebuildAll()
+        public void RebuildAll()
         {
             _agg.Clear();
             var grid = GridSystem.Instance;

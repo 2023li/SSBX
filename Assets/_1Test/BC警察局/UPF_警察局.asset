@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cde1804a74f4dd74e8b6d688f252dce3, type: 3}
+  m_Name: "UPF_\u8B66\u5BDF\u5C40"
+  m_EditorClassIdentifier: 
+  xpMode: 0
+  xpGainPerTurn: {x: 3, y: 6}
+  levels:
+  - level: 1
+    expToNext: 60
+    maxPopulationOverride: 0
+    jobSlotsOverride: 5
+    replaceConfig: {fileID: 11400000, guid: f92380c7b67e5a849bbaa5757ac9b788, type: 2}
+  - level: 2
+    expToNext: 120
+    maxPopulationOverride: 0
+    jobSlotsOverride: 10
+    replaceConfig: {fileID: 11400000, guid: daca403eae09a634b88f73f99bcce6d9, type: 2}

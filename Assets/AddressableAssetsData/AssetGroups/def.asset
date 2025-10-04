@@ -17,8 +17,23 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: b79ba5291ec65dc4fb3f0aaf3509c744
   m_SerializeEntries:
+  - m_GUID: 211f49c7e33b1724ea175a65ddf9da97
+    m_Address: "ui/building_info/id/BID_\u5C45\u6C11\u623F"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 37df05613b8d69548bec306722ac76a6
     m_Address: Assets/_Game/Localization/GameObject.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 928cb6dc42a0abc49b0a989ce45b0527
+    m_Address: "ui/building_info/id/BID_\u4ED3\u5E93"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 989777f30b200f3479625e5befbe8c82
+    m_Address: "ui/building_info/id/\u7CAE\u4ED3"
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

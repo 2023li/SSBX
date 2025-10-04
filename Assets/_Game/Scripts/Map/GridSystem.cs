@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -10,9 +11,17 @@ namespace SSBX
 
         [Header("Tilemaps")]
         public Grid unityGrid;
+        [LabelText("背景地图")]
         public Tilemap groundTilemap;
+        [LabelText("道路地图")]
         public Tilemap roadTilemap;
+        [LabelText("高亮地图")]
+        public Tilemap overlayHighlight;
+        [LabelText("热力图")]
+        public Tilemap overlayHeatmap;
+        [LabelText("障碍地图")]
         public Tilemap blockTilemap;
+     
 
         [Header("尺寸")]
         public Vector3Int minCell;
